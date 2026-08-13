@@ -1,4 +1,4 @@
-# Enterprise Network Design & Implementation — Three-Tier Architecture
+# Enterprise Network Design & Implementation - Three-Tier Architecture
 
 A full enterprise network simulation built in **Cisco Packet Tracer**, connecting a **Headquarters** site and a **Branch Office** over a simulated ISP/Internet cloud, using a hierarchical three-tier design (Core / Distribution / Access).
 
@@ -34,7 +34,7 @@ Both sites are dual-homed at the distribution and core layers so that no single 
 
 ## IP Addressing Scheme
 
-### Headquarters — VLANs
+### Headquarters - VLANs
 
 | Department | VLAN | Network | Prefix | Hosts |
 |---|---|---|---|---|
@@ -46,7 +46,7 @@ Both sites are dual-homed at the distribution and core layers so that no single 
 | WLAN | 60 | 10.10.0.0 | /16 | 25 |
 | Management | 70 | 192.168.10.0 | /24 | 250 |
 
-### Branch Office — VLANs
+### Branch Office - VLANs
 
 | Department | VLAN | Network | Prefix | Hosts |
 |---|---|---|---|---|
@@ -75,13 +75,13 @@ Both sites are dual-homed at the distribution and core layers so that no single 
 
 | Feature | Implementation |
 |---|---|
-| **VLANs** | 7 VLANs per site — 5 departmental, 1 wireless, 1 management |
+| **VLANs** | 7 VLANs per site - 5 departmental, 1 wireless, 1 management |
 | **RPVST+** | Per-VLAN rapid spanning tree for fast convergence and load balancing across multilayer switches |
 | **EtherChannel** | Static Layer 2 bundles between switches for bandwidth aggregation and link redundancy |
 | **VTP** | One distribution multilayer switch in server mode (domain `aayush`); all other switches as clients |
 | **PortFast + BPDU Guard** | Enabled on all access ports facing end devices |
 | **Trunk / Access ports** | 802.1Q trunks between access and distribution; access ports for hosts and APs |
-| **HSRP** | Gateway redundancy — active/standby roles aligned with STP root priority per VLAN |
+| **HSRP** | Gateway redundancy - active/standby roles aligned with STP root priority per VLAN |
 
 ---
 
@@ -103,12 +103,12 @@ Both sites are dual-homed at the distribution and core layers so that no single 
 
 ## Network Services
 
-- **DNS** — internal zone `aayush.com` resolving to the HQ web server
-- **DHCP** — per-VLAN pools at both sites, with `ip helper-address` relay since the servers live in a separate subnet
-- **SNMP** — read-only community configured for monitoring
-- **SYSLOG** — centralised logging server in the branch server farm
-- **AAA / RADIUS** — centralised authentication, authorization, and accounting for device login
-- **NTP** — authenticated time source (UTC+05:45) with key and password
+- **DNS** - internal zone `aayush.com` resolving to the HQ web server
+- **DHCP** - per-VLAN pools at both sites, with `ip helper-address` relay since the servers live in a separate subnet
+- **SNMP** - read-only community configured for monitoring
+- **SYSLOG** - centralised logging server in the branch server farm
+- **AAA / RADIUS** - centralised authentication, authorization, and accounting for device login
+- **NTP** - authenticated time source (UTC+05:45) with key and password
 
 ---
 
@@ -176,7 +176,7 @@ show crypto map
 show ip dhcp snooping
 ```
 
-5. Test end-to-end reachability by pinging between HQ and branch hosts — traffic should traverse the IPSec tunnel.
+5. Test end-to-end reachability by pinging between HQ and branch hosts - traffic should traverse the IPSec tunnel.
 
 ---
 
@@ -184,10 +184,10 @@ show ip dhcp snooping
 
 The accompanying report also covers:
 
-- **Comparison of routing protocols** — OSPF vs EIGRP on open standard vs proprietary, convergence, scalability, and policy control
-- **Security challenges and network impact** — DoS/DDoS, man-in-the-middle, missing segmentation, supply chain attacks, APTs, weak authentication
-- **Risk management, compliance & legal issues** — GDPR, HIPAA, PCI DSS, ISO 27001, plus social and legal considerations
-- **Emerging trends** — SDN, NFV, cloud computing, and 5G, and how each reshapes the traditional three-tier model
+- **Comparison of routing protocols** - OSPF vs EIGRP on open standard vs proprietary, convergence, scalability, and policy control
+- **Security challenges and network impact** - DoS/DDoS, man-in-the-middle, missing segmentation, supply chain attacks, APTs, weak authentication
+- **Risk management, compliance & legal issues** - GDPR, HIPAA, PCI DSS, ISO 27001, plus social and legal considerations
+- **Emerging trends** - SDN, NFV, cloud computing, and 5G, and how each reshapes the traditional three-tier model
 
 ---
 

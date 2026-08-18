@@ -190,7 +190,3 @@ The accompanying report also covers:
 - **Emerging trends** - SDN, NFV, cloud computing, and 5G, and how each reshapes the traditional three-tier model
 
 ---
-
-## Author
-
-**Aayush Shrestha**
